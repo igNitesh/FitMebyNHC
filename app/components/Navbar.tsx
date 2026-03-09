@@ -4,17 +4,18 @@ import { useState, useEffect } from "react";
 // Import the Next.js Link component for client-side navigation optimization
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet";
+import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 import { Menu, Leaf } from "lucide-react";
 
 import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
-  { href: "/about", label: "About Us" },
-  { href: "/blog", label: "Blog" },
-  { href: "/track", label: "Track" },
-  { href: "/contact", label: "Contact" },
+  { href: "#process", label: "Process" },
+  { href: "#about", label: "Why Us" },
+  { href: "#plans", label: "Plans" },
+  { href: "#faq", label: "FAQ" },
 ];
 
 export default function Navbar() {
@@ -56,10 +57,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
-        ? "bg-white/80 backdrop-blur-md border-b border-border shadow-sm"
-        : "bg-transparent"
-        }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
       data-testid="navbar"
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
@@ -102,18 +100,23 @@ export default function Navbar() {
           ))}
         </div>
 
-        {/* Actions and Mobile Menu */}
         <div className="flex items-center gap-4">
           <Button
-            className="hidden md:flex"
+            className="hidden sm:flex bg-primary text-white hover:bg-[#1B365D] rounded-full transition-colors font-bold px-6"
             onClick={() => {
-              handleNavClick("#order");
-              if (window.location.pathname !== '/') {
-                window.location.href = '/#order';
-              }
+              window.location.href = '/book-consultation';
             }}
           >
-            Order Now
+            Book Consultation
+          </Button>
+          <Button
+            size="sm"
+            className="flex sm:hidden text-xs px-4 h-9 bg-primary text-white hover:bg-[#1B365D] rounded-full font-bold"
+            onClick={() => {
+              window.location.href = '/book-consultation';
+            }}
+          >
+            Book Consultation
           </Button>
 
           {/* Mobile Sheet/Menu */}
@@ -123,13 +126,16 @@ export default function Navbar() {
                 <Menu className="w-5 h-5" />
               </Button>
             </SheetTrigger>
-            <SheetContent side="right" className="w-72">
-              <div className="flex flex-col gap-6 mt-8">
+            <SheetContent side="right" className="w-72 bg-white flex flex-col justify-center">
+              <VisuallyHidden>
+                <SheetTitle>Mobile Navigation Menu</SheetTitle>
+              </VisuallyHidden>
+              <div className="flex flex-col gap-6 items-center">
                 {navLinks.map((link) => (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-lg font-medium text-foreground hover:text-primary transition-colors"
+                    className="text-2xl font-semibold text-foreground hover:text-primary transition-colors text-center w-full py-2"
                     data-testid={`link-mobile-${link.label.toLowerCase().replace(" ", "-")}`}
                     onClick={(e) => {
                       if (link.href.startsWith("#")) {
@@ -144,16 +150,14 @@ export default function Navbar() {
                   </Link>
                 ))}
                 <Button
-                  className="mt-4"
+                  className="mt-8 w-full max-w-[200px] bg-primary text-white hover:bg-[#1B365D] rounded-full font-bold"
+                  size="lg"
                   onClick={() => {
-                    handleNavClick("#order");
-                    // Assuming / is the home page where #order resides
-                    if (window.location.pathname !== '/') {
-                      window.location.href = '/#order';
-                    }
+                    setMobileOpen(false);
+                    window.location.href = '/book-consultation';
                   }}
                 >
-                  Order Now
+                  Book Consultation
                 </Button>
               </div>
             </SheetContent>

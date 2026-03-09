@@ -1,129 +1,45 @@
-"use client";
-
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Calculator, ArrowRight } from "lucide-react";
-import Link from "next/link";
+import { HeartPulse, ShieldCheck, Scale } from "lucide-react";
 
 export default function BMICalculator() {
-    const [height, setHeight] = useState("");
-    const [weight, setWeight] = useState("");
-    const [bmi, setBmi] = useState<number | null>(null);
-    const [category, setCategory] = useState("");
-    const [message, setMessage] = useState("");
-
-    const calculateBMI = () => {
-        if (!height || !weight) return;
-
-        const h = parseFloat(height) / 100; // cm to m
-        const w = parseFloat(weight);
-
-        if (isNaN(h) || isNaN(w)) return;
-
-        const result = w / (h * h);
-        setBmi(parseFloat(result.toFixed(1)));
-
-        if (result < 18.5) {
-            setCategory("Underweight");
-            setMessage("You may need nutritional support to build lean muscle mass.");
-        } else if (result >= 18.5 && result < 24.9) {
-            setCategory("Normal Weight");
-            setMessage("Great job! Focus on maintenance and body composition.");
-        } else if (result >= 25 && result < 29.9) {
-            setCategory("Overweight");
-            setMessage("Clinical intervention can help prevent progression to obesity.");
-        } else {
-            setCategory("Obese");
-            setMessage("Medical fat correction is highly recommended for long-term health.");
-        }
-    };
-
     return (
-        <section className="py-24 bg-slate-50" id="bmi-calculator">
-            <div className="container mx-auto px-4 md:px-6">
-                <div className="max-w-4xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+        <section id="mission" className="py-24 bg-primary text-white relative overflow-hidden">
+            {/* Decorative background elements */}
+            <div className="absolute top-0 right-0 -mt-20 -mr-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-accent/20 rounded-full blur-3xl"></div>
+
+            <div className="container mx-auto px-4 md:px-6 relative z-10">
+                <div className="max-w-4xl mx-auto text-center space-y-12">
 
                     <div className="space-y-6">
-                        <div className="inline-flex items-center gap-2 text-primary font-semibold">
-                            <Calculator className="w-5 h-5" />
-                            <span>Health Metrics</span>
-                        </div>
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900">
-                            Check Your Health Status
+                        <h2 className="text-sm md:text-base tracking-widest uppercase font-semibold text-secondary mb-2">
+                            Our Mission
                         </h2>
-                        <p className="text-slate-600 leading-relaxed">
-                            BMI is a preliminary screening tool. For a full metabolic analysis (thyroid, insulin, cortisol), book a medical consultation.
-                        </p>
-                        <ul className="space-y-3 pt-4">
-                            {["Clinical Accuracy", "Instant Results", "Medical Recommendation"].map((item, idx) => (
-                                <li key={idx} className="flex items-center gap-2 text-slate-700">
-                                    <div className="w-2 h-2 rounded-full bg-primary" />
-                                    {item}
-                                </li>
-                            ))}
-                        </ul>
+                        <h3 className="text-3xl md:text-5xl lg:text-5xl font-bold leading-tight">
+                            Medical Weight Loss Shouldn&apos;t Be <br className="hidden md:block" />
+                            a Luxury for the Wealthy.
+                        </h3>
+                        <div className="h-1 w-24 bg-secondary mx-auto rounded-full mt-8" />
                     </div>
 
-                    <Card className="shadow-xl border-border/50 bg-white">
-                        <CardHeader>
-                            <CardTitle>BMI Calculator</CardTitle>
-                            <CardDescription>Enter your details below</CardDescription>
-                        </CardHeader>
-                        <CardContent className="space-y-4">
-                            <div className="grid grid-cols-2 gap-4">
-                                <div className="space-y-2">
-                                    <Label htmlFor="height">Height (cm)</Label>
-                                    <Input
-                                        id="height"
-                                        placeholder="e.g. 170"
-                                        type="number"
-                                        value={height}
-                                        onChange={(e) => setHeight(e.target.value)}
-                                    />
+                    <p className="text-lg md:text-2xl text-gray-300 leading-relaxed font-medium">
+                        We started <span className="text-white font-bold">FitMe by NHC</span> because we were tired of seeing Indian families fall for crash diets, dangerous pills, and overpriced &quot;gurus&quot;.
+                    </p>
+
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8 pt-8 border-t border-white/10">
+                        {[
+                            { icon: ShieldCheck, title: "Doctor Supervised", desc: "True medical safety." },
+                            { icon: Scale, title: "Root Cause Focus", desc: "No symptom masking." },
+                            { icon: HeartPulse, title: "Affordable Care", desc: "Priced for real people." },
+                        ].map((item, idx) => (
+                            <div key={idx} className="flex flex-col items-center gap-3">
+                                <div className="p-4 bg-white/5 rounded-full mb-2">
+                                    <item.icon className="w-8 h-8 text-secondary" />
                                 </div>
-                                <div className="space-y-2">
-                                    <Label htmlFor="weight">Weight (kg)</Label>
-                                    <Input
-                                        id="weight"
-                                        placeholder="e.g. 70"
-                                        type="number"
-                                        value={weight}
-                                        onChange={(e) => setWeight(e.target.value)}
-                                    />
-                                </div>
+                                <h4 className="text-xl font-bold text-white">{item.title}</h4>
+                                <p className="text-gray-400 font-medium">{item.desc}</p>
                             </div>
-
-                            <Button onClick={calculateBMI} className="w-full text-lg h-12 mt-2">
-                                Calculate BMI
-                            </Button>
-
-                            {bmi !== null && (
-                                <div className="mt-6 p-4 bg-secondary/20 rounded-lg animate-in fade-in slide-in-from-top-4">
-                                    <div className="text-center">
-                                        <div className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Your BMI</div>
-                                        <div className="text-4xl font-bold text-primary my-1">{bmi}</div>
-                                        <div className={`text-lg font-semibold ${category === 'Obese' ? 'text-red-500' : category === 'Overweight' ? 'text-orange-500' : 'text-green-600'}`}>
-                                            {category}
-                                        </div>
-                                    </div>
-                                    <div className="mt-3 text-center text-sm text-slate-600 border-t border-border/10 pt-3">
-                                        {message}
-                                    </div>
-
-                                    <div className="mt-4">
-                                        <Link href="/book-consultation" className="w-full">
-                                            <Button variant="outline" className="w-full gap-2 border-primary/20 hover:bg-primary/5 text-primary">
-                                                Book Medical Fat Analysis <ArrowRight className="w-4 h-4" />
-                                            </Button>
-                                        </Link>
-                                    </div>
-                                </div>
-                            )}
-                        </CardContent>
-                    </Card>
+                        ))}
+                    </div>
 
                 </div>
             </div>

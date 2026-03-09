@@ -1,54 +1,110 @@
-import { ArrowRight, Smartphone, CalendarCheck, FileText, Activity } from "lucide-react";
+import { CheckCircle2, ChevronRight } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
 export default function FunnelSection() {
-    const steps = [
-        { icon: Smartphone, label: "WhatsApp Pre-Screening" },
-        { icon: CalendarCheck, label: "Paid Consultation" },
-        { icon: FileText, label: "Customized Plan" },
-        { icon: Activity, label: "Weekly Monitoring" },
+    const plans = [
+        {
+            name: "1 Month Plan",
+            price: "1999",
+            period: "per month",
+            color: "border-gray-200",
+            buttonColor: "bg-white text-primary border-[1px] border-secondary hover:bg-[#F8FAFC]",
+            features: [
+                "Complete Health Assessment",
+                "Personalized Diet Plan",
+                "Basic Workout Plan",
+                "2 Doctor Consultations",
+                "Weekly Tracking",
+                "WhatsApp Support",
+            ],
+            isPopular: false,
+        },
+        {
+            name: "2 Month Plan",
+            price: "2999",
+            period: "total",
+            color: "border-secondary",
+            buttonColor: "bg-primary text-white hover:bg-[#1B365D]",
+            features: [
+                "Everything in 1 Month",
+                "Biweekly Doctor Review",
+                "Hormonal Focus Plan",
+                "Advanced Workout",
+                "Nutritionist Follow-up",
+            ],
+            isPopular: true,
+        },
+        {
+            name: "3 Month Plan",
+            price: "4999",
+            period: "total",
+            color: "border-gray-200",
+            buttonColor: "bg-white text-primary border-[1px] border-secondary hover:bg-[#F8FAFC]",
+            features: [
+                "Everything in 2 Month",
+                "Weekly Doctor Monitoring",
+                "Blood Report Review",
+                "Gut & Inflammation Protocol",
+                "Maintenance Blueprint",
+                "Priority Support",
+            ],
+            isPopular: false,
+        }
     ];
 
     return (
-        <section className="py-24 bg-slate-50 text-center border-t border-slate-100">
-            <div className="container mx-auto px-4 md:px-6">
+        <section id="plans" className="py-24 bg-[#F8FAFC]">
+            <div className="container mx-auto px-4 md:px-6 max-w-7xl">
 
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 text-slate-900">
-                    Start Your <span className="text-teal-600">Medical Fat Correction</span> Journey
-                </h2>
-                <p className="text-slate-600 mb-12 max-w-2xl mx-auto text-lg leading-relaxed">
-                    No guesswork. Just a structured clinical path to your goal weight.
-                </p>
+                <div className="text-center mb-16 px-4">
+                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-6">
+                        Transparent Medical Care
+                    </h2>
+                    <p className="text-[#6B7280] max-w-2xl mx-auto text-lg md:text-xl font-medium">
+                        Premium medical guidance. Honest pricing. No hidden sales.
+                    </p>
+                </div>
 
-                <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mb-16">
-                    {steps.map((step, idx) => (
-                        <div key={idx} className="flex flex-col md:flex-row items-center gap-4 relative group">
-                            <div className="flex flex-col items-center gap-3">
-                                <div className="w-16 h-16 rounded-full bg-white shadow-sm border border-slate-200 flex items-center justify-center group-hover:border-teal-200 group-hover:shadow-md transition-all">
-                                    <step.icon className="w-7 h-7 text-teal-600" />
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    {plans.map((plan, idx) => (
+                        <div
+                            key={idx}
+                            className={`relative bg-white rounded-2xl p-8 flex flex-col h-full border-[1.5px] transition-all hover:shadow-xl ${plan.color} ${plan.isPopular ? 'shadow-lg transform md:-translate-y-4' : 'shadow-sm'}`}
+                        >
+                            {plan.isPopular && (
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-primary font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider">
+                                    Most Recommended
                                 </div>
-                                <span className="font-semibold text-sm md:text-base text-slate-800">{step.label}</span>
+                            )}
+
+                            <div className="mb-6">
+                                <h3 className="text-xl font-bold text-[#333333] mb-2">{plan.name}</h3>
+                                <div className="flex items-baseline gap-2">
+                                    <span className="text-4xl font-black text-primary">₹{plan.price}</span>
+                                    <span className="text-[#6B7280] font-medium text-sm">/{plan.period}</span>
+                                </div>
                             </div>
 
-                            {idx < steps.length - 1 && (
-                                <ArrowRight className="hidden md:block w-5 h-5 text-slate-300" />
-                            )}
-                            {idx < steps.length - 1 && (
-                                <div className="md:hidden w-0.5 h-8 bg-slate-200 my-2" />
-                            )}
+                            <div className="flex-grow">
+                                <ul className="space-y-4 mb-8">
+                                    {plan.features.map((feature, fIdx) => (
+                                        <li key={fIdx} className="flex items-start gap-3">
+                                            <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
+                                            <span className="text-[#333333] text-sm md:text-base font-medium leading-tight">{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            <Link href="/book-consultation" className="w-full mt-auto">
+                                <Button className={`w-full py-6 rounded-xl font-bold text-base md:text-lg flex justify-center items-center gap-2 transition-transform duration-200 active:scale-95 ${plan.buttonColor}`}>
+                                    Select Plan <ChevronRight className="w-5 h-5" />
+                                </Button>
+                            </Link>
                         </div>
                     ))}
                 </div>
-
-                <Link href="https://wa.me/919876543210" target="_blank">
-                    <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg px-8 h-14 rounded-full shadow-xl shadow-[#25D366]/20 transition-transform hover:scale-105">
-                        Start WhatsApp Screening
-                    </Button>
-                </Link>
-                <p className="mt-4 text-xs font-medium text-slate-500 uppercase tracking-wide">
-                    Direct access to our medical coordination team
-                </p>
 
             </div>
         </section>

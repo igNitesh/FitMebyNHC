@@ -1,7 +1,7 @@
 @import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 /* @import "tw-animate-css"; */
-
-
 /* LIGHT MODE - Clinical Medical Theme */
 :root {
   --button-outline: rgba(0, 0, 0, .10);
@@ -20,33 +20,30 @@
   --sidebar-foreground: 215 25% 27%;
   --sidebar-border: 214 32% 91%;
 
-  /* Primary - Medical Teal */
-  --primary: 173 80% 40%;
-  /* #14b8a6 Teal 500-600ish */
+  /* Primary - Deep Medical Navy (#0F2B46) */
+  --primary: 210 65% 17%;
   --primary-foreground: 0 0% 100%;
 
-  --sidebar-primary: 173 80% 40%;
+  --sidebar-primary: 210 65% 17%;
   --sidebar-primary-foreground: 0 0% 100%;
-  --sidebar-accent: 173 80% 96%;
-  --sidebar-accent-foreground: 173 80% 40%;
-  --sidebar-ring: 173 80% 40%;
+  --sidebar-accent: 210 33% 98%;
+  --sidebar-accent-foreground: 210 65% 17%;
+  --sidebar-ring: 210 65% 17%;
 
   --popover: 0 0% 100%;
   --popover-foreground: 215 25% 27%;
   --popover-border: 214 32% 91%;
 
-  /* Secondary - Trust Blue */
-  --secondary: 200 90% 96%;
-  /* Sky 50 */
-  --secondary-foreground: 200 80% 40%;
-  /* Sky 700 */
+  /* Secondary - Matte Gold (#C6A75E) */
+  --secondary: 42 46% 57%;
+  --secondary-foreground: 0 0% 100%;
 
   --muted: 210 40% 96.1%;
   --muted-foreground: 215 16% 47%;
 
-  --accent: 173 80% 96%;
-  /* Teal 50 */
-  --accent-foreground: 173 80% 40%;
+  /* Accent - Soft Teal (#2E7D75) */
+  --accent: 174 46% 34%;
+  --accent-foreground: 0 0% 100%;
 
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 210 40% 98%;

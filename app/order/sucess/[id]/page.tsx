@@ -11,10 +11,9 @@ export default function Page() {
   const { toast } = useToast()
 
   const [copied, setCopied] = useState(false)
-  const [burst, setBurst] = useState(false)
+  const [burst, setBurst] = useState(true)
 
   useEffect(() => {
-    setBurst(true)
     const t = setTimeout(() => setBurst(false), 1600)
     return () => clearTimeout(t)
   }, [])
@@ -48,9 +47,8 @@ export default function Page() {
           {/* Success Icon */}
           <div className="relative">
             <div
-              className={`rounded-full bg-primary/10 p-4 ${
-                burst ? "animate-ping" : ""
-              }`}
+              className={`rounded-full bg-primary/10 p-4 ${burst ? "animate-ping" : ""
+                }`}
             >
               <Check className="w-8 h-8 text-primary" />
             </div>
@@ -86,7 +84,7 @@ export default function Page() {
           )}
 
           <p className="mt-4 text-sm text-muted-foreground max-w-md">
-            We’ve received your order. You’ll get updates via email.  
+            We’ve received your order. You’ll get updates via email.
             You can track your order or copy the order ID below.
           </p>
 

@@ -31,8 +31,8 @@ interface OrderResponse {
 const coursePlans = [
     {
         duration: 1,
-        label: "1 Month",
-        subLabel: "Starter",
+        label: "1 Month Trial",
+        subLabel: "Basic Weight Loss",
         price: 1499,
         savings: "MRP ₹1,999",
         bestFor: "Trial",
@@ -40,8 +40,8 @@ const coursePlans = [
     },
     {
         duration: 3,
-        label: "3 Months",
-        subLabel: "Transformation",
+        label: "3 Months Program",
+        subLabel: "Full Medical Support",
         price: 3999,
         savings: "Save ₹500",
         bestFor: "Real Results",
@@ -135,13 +135,10 @@ export default function OrderSection({ onOrderPlaced }: OrderSectionProps) {
                 onOrderPlaced(data.id);
             }
 
-            console.log("Redirecting to:", `/order/sucess?orderId=${encodeURIComponent(data.id)}`); // Debug log
-
-            // Force scroll to tracking or show success message if redirect fails
-            const trackSection = document.getElementById('track');
-            if (trackSection) {
-                trackSection.scrollIntoView({ behavior: 'smooth' });
-            }
+            // Redirect directly to the tracking page with the new order ID
+            setTimeout(() => {
+                router.push(`/track?orderId=${encodeURIComponent(data.id)}`);
+            }, 1500);
 
 
         } catch (error) {
@@ -170,7 +167,7 @@ export default function OrderSection({ onOrderPlaced }: OrderSectionProps) {
                         className="text-lg text-slate-600 max-w-2xl mx-auto"
                         data-testid="text-order-subtitle"
                     >
-                        Choose the medical plan that fits your weight loss goals.
+                        Transparent Pricing. No Fake Hidden Fees. Doctor-Guided from Day 1.
                     </p>
                 </div>
 
@@ -186,8 +183,8 @@ export default function OrderSection({ onOrderPlaced }: OrderSectionProps) {
                                     key={plan.duration}
                                     onClick={() => setSelectedPlan(plan.duration)}
                                     className={`relative cursor-pointer rounded-xl border p-6 transition-all duration-300 hover:shadow-md ${selectedPlan === plan.duration
-                                            ? "border-teal-600 ring-1 ring-teal-600 bg-teal-50/50"
-                                            : "border-slate-200 bg-white hover:border-teal-200"
+                                        ? "border-teal-600 ring-1 ring-teal-600 bg-teal-50/50"
+                                        : "border-slate-200 bg-white hover:border-teal-200"
                                         }`}
                                 >
                                     {plan.highlight && (
@@ -329,8 +326,8 @@ export default function OrderSection({ onOrderPlaced }: OrderSectionProps) {
                                                 type="button"
                                                 onClick={() => handleInputChange("paymentMethod", "cod")}
                                                 className={`p-4 rounded-lg border text-left transition-all ${formData.paymentMethod === "cod"
-                                                        ? "border-teal-600 bg-teal-50 ring-1 ring-teal-600"
-                                                        : "border-slate-200 hover:border-teal-200 bg-white"
+                                                    ? "border-teal-600 bg-teal-50 ring-1 ring-teal-600"
+                                                    : "border-slate-200 hover:border-teal-200 bg-white"
                                                     }`}
                                             >
                                                 <div className="flex items-center gap-3">
@@ -347,8 +344,8 @@ export default function OrderSection({ onOrderPlaced }: OrderSectionProps) {
                                                 type="button"
                                                 onClick={() => handleInputChange("paymentMethod", "online")}
                                                 className={`p-4 rounded-lg border text-left transition-all ${formData.paymentMethod === "online"
-                                                        ? "border-teal-600 bg-teal-50 ring-1 ring-teal-600"
-                                                        : "border-slate-200 hover:border-teal-200 bg-white"
+                                                    ? "border-teal-600 bg-teal-50 ring-1 ring-teal-600"
+                                                    : "border-slate-200 hover:border-teal-200 bg-white"
                                                     }`}
                                             >
                                                 <div className="flex items-center gap-3">

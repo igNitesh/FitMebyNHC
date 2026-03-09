@@ -48,7 +48,7 @@ export default function BrandSection() {
                             <p data-testid="text-brand-p1">
                                 For over 5,000 years, Ayurveda has been the cornerstone of
                                 holistic wellness in India. Our founder, inspired by her
-                                grandmother's traditional herbal remedies, set out to bring this
+                                grandmother&apos;s traditional herbal remedies, set out to bring this
                                 ancient wisdom to the modern world.
                             </p>
                             <p data-testid="text-brand-p2">

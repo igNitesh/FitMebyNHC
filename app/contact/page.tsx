@@ -1,10 +1,21 @@
+'use client';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { Mail, MapPin, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "../hooks/use-toast";
 
 export default function ContactPage() {
+    const { toast } = useToast();
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        toast({
+            title: "Message Sent!",
+            description: "We have received your message and will get back to you shortly.",
+        });
+    };
     return (
         <div className="min-h-screen bg-background">
             <Navbar />
@@ -22,7 +33,7 @@ export default function ContactPage() {
                     {/* Contact Form */}
                     <div className="bg-white p-8 rounded-3xl shadow-sm border border-border space-y-6">
                         <h2 className="text-2xl font-bold">Send us a message</h2>
-                        <form className="space-y-4">
+                        <form className="space-y-4" onSubmit={handleSubmit}>
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 <div className="space-y-2">
                                     <label htmlFor="firstName" className="text-sm font-medium">First Name</label>

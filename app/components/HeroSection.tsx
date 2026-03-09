@@ -1,14 +1,12 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight, Activity, Calendar, ShieldCheck, Microscope, UserCheck } from "lucide-react";
+import { ArrowRight, Activity, Calendar, ShieldCheck, UserCheck, MessageCircle } from "lucide-react";
+import Image from "next/image";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-gradient-to-br from-white via-secondary/20 to-white pt-24 pb-16 md:pt-32 md:pb-24">
-      {/* Background Decorative Elements */}
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl" />
+    <section className="relative overflow-hidden bg-white pt-24 pb-16 md:pt-32 md:pb-24">
 
       <div className="container mx-auto px-4 md:px-6 relative z-10">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
@@ -21,87 +19,64 @@ export default function HeroSection() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-foreground leading-[1.15]">
-                Doctor Guided <br />
-                <span className="text-primary">Fat Loss</span>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-primary leading-[1.15]">
+                Fat Loss is Medical. <br />
+                <span className="text-[#333333]">And We Treat It That Way.</span>
               </h1>
-              <h2 className="text-2xl md:text-3xl text-muted-foreground font-light">
-                Safe Weight Loss. Real Results.
+              <h2 className="text-xl md:text-2xl text-[#333333] font-medium leading-relaxed">
+                Doctor-Led Scientific Weight Management Program
+                <br />
+                <span className="font-semibold">Safe. Transparent. Affordable.</span>
               </h2>
             </div>
 
-            <p className="text-lg text-muted-foreground max-w-lg leading-relaxed">
-              A structured medical system combining clinical diagnosis, nutrition science, and biomechanics for sustainable fat correction.
+            <p className="text-sm md:text-base font-semibold text-[#6B7280]">
+              Doctor Supervised | Evidence Based | No Crash Diets
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link
                 href="/book-consultation"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-primary text-primary-foreground font-semibold text-lg shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[10px] bg-primary text-white border-[1.5px] border-secondary font-bold text-lg hover:bg-[#1B365D] transition-colors"
               >
-                Book Consultation
+                👉 Start Your Medical Assessment
               </Link>
               <Link
-                href="#bmi-calculator"
-                className="inline-flex items-center justify-center px-8 py-4 rounded-lg bg-white border border-input text-foreground font-medium text-lg hover:bg-accent/50 transition-colors"
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('bmi-calculator')?.scrollIntoView({ behavior: 'smooth' });
-                }}
+                href="#plans"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[10px] bg-white text-primary border-[1.5px] border-secondary font-bold text-lg hover:bg-primary hover:text-white transition-colors"
               >
-                Check Your BMI
+                👉 View Plans
               </Link>
             </div>
 
             {/* Trust Badges */}
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 pt-8 border-t border-border/50">
+            <div className="grid grid-cols-2 lg:grid-cols-3 gap-6 pt-8 border-t border-border/50">
               {[
-                { icon: UserCheck, label: "Doctor Founded" },
-                { icon: Activity, label: "Physio Designed" },
-                { icon: Microscope, label: "Lab Based" },
-                { icon: Calendar, label: "Weekly Monitoring" },
+                { icon: ShieldCheck, label: "100% Safe & Natural" },
+                { icon: UserCheck, label: "Verified Doctors" },
+                { icon: Activity, label: "Fixes Root Cause" },
               ].map((badge, idx) => (
-                <div key={idx} className="flex flex-col items-center text-center gap-2">
-                  <div className="p-2 rounded-full bg-secondary/30 text-primary">
-                    <badge.icon className="w-5 h-5" />
+                <div key={idx} className="flex items-center gap-3 bg-white p-3 rounded-xl border border-secondary shadow-sm">
+                  <div className="p-2 rounded-full bg-green-50 text-green-600">
+                    <badge.icon className="w-6 h-6" />
                   </div>
-                  <span className="text-xs font-medium text-muted-foreground leading-tight">{badge.label}</span>
+                  <span className="font-bold text-sm text-foreground leading-tight">{badge.label}</span>
                 </div>
               ))}
             </div>
           </div>
 
           {/* Right Image/Illustration Area */}
-          <div className="relative animate-fade-in md:pl-10">
-            <div className="relative aspect-[4/5] md:aspect-square rounded-3xl overflow-hidden shadow-2xl bg-white border border-border/50">
-              {/* Placeholder for Doctor/Patient Image */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-slate-100 to-slate-50 flex items-center justify-center group">
-                <div className="text-center space-y-4 p-6">
-                  <div className="w-24 h-24 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Activity className="w-10 h-10 text-primary" />
-                  </div>
-                  <p className="text-muted-foreground font-medium">Professional Medical Support</p>
-                  {/* In production this would be: 
-                        <Image src="/images/doctor-consultation.jpg" alt="Doctor Consultation" fill className="object-cover" /> 
-                    */}
-                </div>
-
-                {/* Floating Cards Over Image */}
-                <div className="absolute top-10 left-4 bg-white/90 backdrop-blur px-4 py-3 rounded-xl shadow-lg border border-primary/10 animate-bounce-slow">
-                  <div className="flex items-center gap-3">
-                    <div className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                    <span className="text-sm font-semibold">Verified Medical Expert</span>
-                  </div>
-                </div>
-
-                <div className="absolute bottom-10 right-4 bg-primary text-white px-5 py-3 rounded-xl shadow-lg shadow-primary/20">
-                  <p className="text-2xl font-bold">100%</p>
-                  <p className="text-xs opacity-90">Science Based</p>
-                </div>
-              </div>
-            </div>
+          <div className="relative animate-fade-in md:pl-10 mt-12 md:mt-0 aspect-[4/5] rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+            <Image
+              src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=800&auto=format&fit=crop"
+              alt="Professional Medical Team Consultation"
+              fill
+              className="object-cover object-center"
+              sizes="(max-width: 768px) 100vw, 50vw"
+              priority
+            />
           </div>
-
         </div>
       </div>
     </section>

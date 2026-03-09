@@ -40,14 +40,7 @@ const statusSteps = [
 export default function TrackingSection({ initialOrderId }: TrackingSectionProps) {
   const { toast } = useToast();
   const [orderId, setOrderId] = useState(initialOrderId || "");
-  const [searchOrderId, setSearchOrderId] = useState<string | null>(null);
-
-  useEffect(() => {
-    if (initialOrderId) {
-      setOrderId(initialOrderId);
-      setSearchOrderId(initialOrderId);
-    }
-  }, [initialOrderId]);
+  const [searchOrderId, setSearchOrderId] = useState<string | null>(initialOrderId || null);
 
   const { data: order, isLoading, isError } = useQuery<Order>({
     queryKey: ["/api/orders", searchOrderId],
@@ -79,7 +72,7 @@ export default function TrackingSection({ initialOrderId }: TrackingSectionProps
         description: `Tracking information for order ${order.id}`,
       });
     }
-  }, [order]);
+  }, [order, toast]);
 
   useEffect(() => {
     if (isError && searchOrderId) {
@@ -89,7 +82,7 @@ export default function TrackingSection({ initialOrderId }: TrackingSectionProps
         variant: "destructive",
       });
     }
-  }, [isError, searchOrderId]);
+  }, [isError, searchOrderId, toast]);
 
   const getStatusIndex = (status: string) => {
     return statusSteps.findIndex((step) => step.key === status);
@@ -205,8 +198,8 @@ export default function TrackingSection({ initialOrderId }: TrackingSectionProps
                       >
                         <div
                           className={`w-10 h-10 rounded-full flex items-center justify-center transition-colors ${isCompleted
-                              ? "bg-primary text-primary-foreground"
-                              : "bg-muted text-muted-foreground"
+                            ? "bg-primary text-primary-foreground"
+                            : "bg-muted text-muted-foreground"
                             } ${isCurrent ? "ring-4 ring-primary/20" : ""}`}
                         >
                           <StepIcon className="w-5 h-5" />

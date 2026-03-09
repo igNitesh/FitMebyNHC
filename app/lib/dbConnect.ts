@@ -1,9 +1,11 @@
 import mongoose from 'mongoose';
 
 // Use a global variable to cache the connection promise
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 let cached = (global as any).mongoose;
 
 if (!cached) {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   cached = (global as any).mongoose = { conn: null, promise: null };
 }
 
