@@ -15,7 +15,7 @@ export default function PcodSection() {
 
                 <div className="relative w-full aspect-[4/3] md:aspect-[16/9] rounded-2xl overflow-hidden shadow-xl border border-gray-100">
                     <Image
-                        src="/images/pcod-vs-pcos.jpg"
+                        src="/images/info/pcodvspcos.jpeg"
                         alt="Explaining the Difference: PCOD vs PCOS"
                         fill
                         className="object-contain bg-[#e5f5f4]"
