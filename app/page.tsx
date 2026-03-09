@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
 import SystemSection from "./components/SystemSection";
+import PcodSection from "./components/PcodSection";
 import BMICalculator from "./components/BMICalculator";
 import SupplementSection from "./components/ObesityCausesSection";
 import SuccessStoriesSection from "./components/SuccessStoriesSection";
@@ -18,6 +19,7 @@ export default function Home() {
       <main>
         <div id="hero"><HeroSection /></div>
         <div id="about"><AboutSection /></div>
+        <div id="pcod"><PcodSection /></div>
         <div id="system"><SystemSection /></div>
         <div id="causes"><SupplementSection /></div>
         <div id="bmi-calculator"><BMICalculator /></div>

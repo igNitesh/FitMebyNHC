@@ -130,7 +130,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-400">
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary" />
-                <span data-testid="text-email">support@fitmebynhc.com</span>
+                <span data-testid="text-email">sanskargupta23@gmail.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary" />

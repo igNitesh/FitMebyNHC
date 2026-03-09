@@ -73,7 +73,7 @@ export default function FunnelSection() {
                             className={`relative bg-white rounded-2xl p-8 flex flex-col h-full border-[1.5px] transition-all hover:shadow-xl ${plan.color} ${plan.isPopular ? 'shadow-lg transform md:-translate-y-4' : 'shadow-sm'}`}
                         >
                             {plan.isPopular && (
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider">
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider whitespace-nowrap">
                                     Most Recommended
                                 </div>
                             )}
