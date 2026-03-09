@@ -9,7 +9,7 @@ export default function FunnelSection() {
             price: "1999",
             period: "per month",
             color: "border-gray-200",
-            buttonColor: "bg-white text-primary border-[1px] border-secondary hover:bg-[#F8FAFC]",
+            buttonColor: "bg-white text-primary border border-primary/20 hover:bg-slate-50",
             features: [
                 "Complete Health Assessment",
                 "Personalized Diet Plan",
@@ -24,8 +24,8 @@ export default function FunnelSection() {
             name: "2 Month Plan",
             price: "2999",
             period: "total",
-            color: "border-secondary",
-            buttonColor: "bg-primary text-white hover:bg-[#1B365D]",
+            color: "border-primary/20",
+            buttonColor: "bg-primary text-primary-foreground hover:bg-primary/90",
             features: [
                 "Everything in 1 Month",
                 "Biweekly Doctor Review",
@@ -40,7 +40,7 @@ export default function FunnelSection() {
             price: "4999",
             period: "total",
             color: "border-gray-200",
-            buttonColor: "bg-white text-primary border-[1px] border-secondary hover:bg-[#F8FAFC]",
+            buttonColor: "bg-white text-primary border border-primary/20 hover:bg-slate-50",
             features: [
                 "Everything in 2 Month",
                 "Weekly Doctor Monitoring",
@@ -73,7 +73,7 @@ export default function FunnelSection() {
                             className={`relative bg-white rounded-2xl p-8 flex flex-col h-full border-[1.5px] transition-all hover:shadow-xl ${plan.color} ${plan.isPopular ? 'shadow-lg transform md:-translate-y-4' : 'shadow-sm'}`}
                         >
                             {plan.isPopular && (
-                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-secondary text-primary font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider">
+                                <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-primary-foreground font-bold px-4 py-1 rounded-full text-sm uppercase tracking-wider">
                                     Most Recommended
                                 </div>
                             )}
@@ -97,7 +97,11 @@ export default function FunnelSection() {
                                 </ul>
                             </div>
 
-                            <Link href="/book-consultation" className="w-full mt-auto">
+                            <Link
+                                href={`https://wa.me/9718476787?text=${encodeURIComponent(`Hi, I want to select the ${plan.name} at ₹${plan.price}. Please provide more details.`)}`}
+                                target="_blank"
+                                className="w-full mt-auto"
+                            >
                                 <Button className={`w-full py-6 rounded-xl font-bold text-base md:text-lg flex justify-center items-center gap-2 transition-transform duration-200 active:scale-95 ${plan.buttonColor}`}>
                                     Select Plan <ChevronRight className="w-5 h-5" />
                                 </Button>

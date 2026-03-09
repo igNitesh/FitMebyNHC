@@ -50,7 +50,7 @@ export default function ContactPage() {
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="phone" className="text-sm font-medium">Phone Number</label>
-                                <Input id="phone" type="tel" placeholder="+91 98765 43210" />
+                                <Input id="phone" type="tel" placeholder="+91 97184 76787" />
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="message" className="text-sm font-medium">Message</label>
@@ -77,9 +77,8 @@ export default function ContactPage() {
                                         <Phone className="w-6 h-6" />
                                     </div>
                                     <div>
-                                        <h3 className="font-semibold text-lg">Phone</h3>
-                                        <p className="text-muted-foreground mt-1">+91 98765 43210</p>
-                                        <p className="text-muted-foreground mt-1">+91 12345 67890</p>
+                                        <h3 className="font-semibold text-lg">Phone / WhatsApp</h3>
+                                        <p className="text-muted-foreground mt-1">+91 97184 76787</p>
                                     </div>
                                 </div>
 

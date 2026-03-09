@@ -82,7 +82,10 @@ export default function FaqSection() {
                     <p className="text-[#333333] mb-8 max-w-lg mx-auto">
                         Our medical coordination team is available on WhatsApp to answer any specific queries about your health condition.
                     </p>
-                    <Link href="https://wa.me/919876543210" target="_blank">
+                    <Link
+                        href={`https://wa.me/9718476787?text=${encodeURIComponent('Hi, I have a few questions before booking a consultation.')}`}
+                        target="_blank"
+                    >
                         <Button size="lg" className="bg-[#25D366] hover:bg-[#20bd5a] text-white font-bold text-lg px-8 h-14 rounded-full shadow-lg transition-transform hover:scale-105">
                             Chat on WhatsApp
                         </Button>

@@ -21,8 +21,8 @@ export default function WhatsAppButton() {
     }, []);
 
     // Replace with actual number
-    const phoneNumber = "919876543210";
-    const message = "Hi, I want to book a fat loss consultation.";
+    const phoneNumber = "9718476787";
+    const message = "Hi, I'm interested in the medical fat loss program and would like to chat with an expert.";
 
     return (
         <div className={`fixed bottom-6 right-6 z-50 transition-all duration-300 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}>

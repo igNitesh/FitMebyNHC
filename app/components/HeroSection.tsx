@@ -37,7 +37,7 @@ export default function HeroSection() {
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
               <Link
                 href="/book-consultation"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[10px] bg-primary text-white border-[1.5px] border-secondary font-bold text-lg hover:bg-[#1B365D] transition-colors"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[10px] bg-primary text-primary-foreground font-bold text-lg hover:bg-primary/90 shadow-md transition-colors"
               >
                 👉 Start Your Medical Assessment
               </Link>
