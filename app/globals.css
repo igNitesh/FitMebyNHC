@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
 
 /* @import "tw-animate-css"; */
 /* LIGHT MODE - Clinical Medical Theme */
@@ -9,34 +9,34 @@
   --opaque-button-border-intensity: -8;
   --elevate-1: rgba(0, 0, 0, .03);
   --elevate-2: rgba(0, 0, 0, .08);
-  --background: 0 0% 100%;
-  --foreground: 215 25% 27%;
+  --background: 210 33% 98%;
+  --foreground: 215 25% 15%;
   /* Slate 800 - softer than black */
   --border: 214 32% 91%;
   --card: 0 0% 100%;
-  --card-foreground: 215 25% 27%;
+  --card-foreground: 215 25% 15%;
   --card-border: 214 32% 91%;
   --sidebar: 210 40% 98%;
-  --sidebar-foreground: 215 25% 27%;
+  --sidebar-foreground: 215 25% 15%;
   --sidebar-border: 214 32% 91%;
 
-  /* Primary - Deep Medical Navy (#0F2B46) */
-  --primary: 210 65% 17%;
+  /* Primary - Vibrant Teal (#0D9488) */
+  --primary: 174 83% 32%;
   --primary-foreground: 0 0% 100%;
 
-  --sidebar-primary: 210 65% 17%;
+  --sidebar-primary: 174 83% 32%;
   --sidebar-primary-foreground: 0 0% 100%;
   --sidebar-accent: 210 33% 98%;
-  --sidebar-accent-foreground: 210 65% 17%;
-  --sidebar-ring: 210 65% 17%;
+  --sidebar-accent-foreground: 174 83% 32%;
+  --sidebar-ring: 174 83% 32%;
 
   --popover: 0 0% 100%;
-  --popover-foreground: 215 25% 27%;
+  --popover-foreground: 215 25% 15%;
   --popover-border: 214 32% 91%;
 
-  /* Secondary - Matte Gold (#C6A75E) */
-  --secondary: 42 46% 57%;
-  --secondary-foreground: 0 0% 100%;
+  /* Secondary - Soft Berry-Pink (#F472B6) */
+  --secondary: 329 86% 70%;
+  --secondary-foreground: 329 86% 10%;
 
   --muted: 210 40% 96.1%;
   --muted-foreground: 215 16% 47%;

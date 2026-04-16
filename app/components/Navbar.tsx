@@ -12,6 +12,7 @@ import Image from "next/image";
 
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/blog", label: "Blog" },
   { href: "#process", label: "Process" },
   { href: "#about", label: "Why Us" },
   { href: "#plans", label: "Plans" },
@@ -57,14 +58,14 @@ export default function Navbar() {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200"
+      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg shadow-sm"
       data-testid="navbar"
     >
       <nav className="max-w-7xl mx-auto px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
         {/* Logo/Home Link */}
         <Link
           href="/"
-          className="flex items-center gap-2 text-xl font-bold tracking-tight text-primary"
+          className="flex items-center gap-2 text-xl font-bold tracking-tight text-primary font-serif"
           data-testid="link-logo"
         >
           <Image

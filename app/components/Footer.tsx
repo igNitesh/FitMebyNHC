@@ -130,7 +130,7 @@ export default function Footer() {
             <ul className="space-y-4 text-sm text-gray-400">
               <li className="flex items-start gap-3">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary" />
-                <span data-testid="text-email">sanskargupta23@gmail.com</span>
+                <span data-testid="text-email">sanskargupta2390@gmail.com</span>
               </li>
               <li className="flex items-start gap-3">
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary" />
@@ -139,9 +139,9 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0 text-secondary" />
                 <span data-testid="text-address" className="leading-relaxed">
-                  Nutrition and Health Care Hub,
+                  Nutrition and Health,
                   <br />
-                  Mumbai, Maharashtra 400001
+                  kanpur, Uttar Pradesh 208001
                 </span>
               </li>
             </ul>

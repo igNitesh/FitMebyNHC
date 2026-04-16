@@ -1,73 +1,92 @@
-import { Ban, CheckCircle2, Stethoscope, TestTube2, BrainCircuit, Activity } from "lucide-react";
+import { CheckCircle2, ShieldCheck, Stethoscope, Microscope, Search, ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 export default function AboutSection() {
     return (
-        <section className="py-24 bg-white">
-            <div className="container mx-auto px-4 md:px-6">
+        <section className="py-24 bg-[#FAFCFC] border-b border-gray-100">
+            <div className="container mx-auto px-4 md:px-6 max-w-6xl">
 
                 <div className="text-center max-w-3xl mx-auto mb-16">
-                    <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-primary mb-4">
-                        Why FitMe by NHC is Different
+                    <h2 className="text-3xl md:text-5xl font-bold font-serif text-[#111827] mb-6">
+                        Why FitMe works when diets fail.
                     </h2>
-                    <div className="h-1 w-20 bg-secondary mx-auto rounded-full" />
+                    <p className="text-xl text-gray-600 font-medium font-sans">
+                        We are a medical facility, not a gym. We diagnose before we prescribe.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-
-                    {/* Left: Founders/Approach */}
-                    <div className="space-y-8">
-                        <div className="bg-[#F8FAFC] p-8 md:p-10 rounded-2xl border border-gray-100">
-                            <h3 className="text-2xl font-bold mb-8 text-primary border-b-2 border-secondary/30 pb-4 inline-block">The Clinical Edge</h3>
-
-                            <div className="space-y-8">
-                                <div className="flex items-start gap-5">
-                                    <div className="p-4 bg-white rounded-xl shadow-[0_2px_10px_rgba(15,43,70,0.06)] border border-gray-100 text-accent shrink-0">
-                                        <Stethoscope className="w-7 h-7" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-xl text-primary">Led by Medical Doctor & Physiotherapist</h4>
-                                        <p className="text-[#333333] text-base leading-relaxed mt-2">
-                                            Obesity treated as a medical condition. Founded by clinical experts who understand that weight loss is about metabolic health, not just calories.
-                                        </p>
-                                    </div>
-                                </div>
-
-                                <div className="flex items-start gap-5">
-                                    <div className="p-4 bg-white rounded-xl shadow-[0_2px_10px_rgba(15,43,70,0.06)] border border-gray-100 text-accent shrink-0">
-                                        <BrainCircuit className="w-7 h-7" />
-                                    </div>
-                                    <div>
-                                        <h4 className="font-bold text-xl text-primary">Root Cause Approach</h4>
-                                        <p className="text-[#333333] text-base leading-relaxed mt-2">
-                                            We treat the hormones, metabolism, and lifestyle factors causing the weight gain. Safe and effective for PCOD, Thyroid, and Pre-diabetes.
-                                        </p>
-                                    </div>
-                                </div>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                    {[
+                        { 
+                            icon: Stethoscope, 
+                            title: "Doctors, NOT Trainers", 
+                            desc: "Your protocol is designed by certified MDs and Clinical Physiotherapists who understand female hormones.",
+                            color: "text-blue-600 bg-blue-50 border-blue-100" 
+                        },
+                        { 
+                            icon: Microscope, 
+                            title: "Bloodwork Driven", 
+                            desc: "We analyze your internal health markers. If you have insulin resistance, standard calorie deficits will literally not work.",
+                            color: "text-purple-600 bg-purple-50 border-purple-100" 
+                        },
+                        { 
+                            icon: Search, 
+                            title: "Root Cause Correction", 
+                            desc: "We don't sell 'magic fat burners'. We fix the underlying metabolic slowdown causing the weight retention.",
+                            color: "text-emerald-600 bg-emerald-50 border-emerald-100" 
+                        }
+                    ].map((feature, idx) => (
+                        <div key={idx} className="bg-white rounded-2xl p-8 border border-gray-100 shadow-[0_4px_25px_rgba(0,0,0,0.03)] hover:shadow-lg transition-shadow">
+                            <div className={`w-14 h-14 rounded-xl flex items-center justify-center border mb-6 ${feature.color}`}>
+                                <feature.icon className="w-7 h-7" />
                             </div>
+                            <h3 className="text-xl font-bold text-[#111827] mb-3">{feature.title}</h3>
+                            <p className="text-gray-600 font-medium leading-relaxed">{feature.desc}</p>
+                        </div>
+                    ))}
+                </div>
+
+                {/* Proof & Contrast Box */}
+                <div className="bg-white rounded-[2rem] border border-gray-200 overflow-hidden shadow-xl">
+                    <div className="grid md:grid-cols-2">
+                        <div className="p-10 md:p-14 bg-red-50 border-b md:border-b-0 md:border-r border-red-100">
+                            <h4 className="text-2xl font-bold text-red-900 mb-6 font-serif">The Old Standard Way</h4>
+                            <ul className="space-y-4">
+                                {["Starvation diets & low calories", "Excessive cardio driving up cortisol", "Blaming 'willpower'", "No hormonal consideration"].map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3">
+                                        <div className="w-6 h-6 rounded-full bg-red-200 text-red-700 flex items-center justify-center shrink-0 mt-0.5 text-sm font-bold">✕</div>
+                                        <span className="text-red-900 font-medium">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                        <div className="p-10 md:p-14 bg-green-50 border-green-100 relative overflow-hidden">
+                            <div className="absolute top-0 right-0 p-8 opacity-10">
+                                <ShieldCheck className="w-32 h-32 text-green-700" />
+                            </div>
+                            <h4 className="text-2xl font-bold text-green-900 mb-6 font-serif relative z-10">The FitMe Medical Way</h4>
+                            <ul className="space-y-4 relative z-10">
+                                {["Nourishing clinical nutrition", "Metabolic conditioning", "Healing the root cause", "Doctor monitored progression"].map((item, i) => (
+                                    <li key={i} className="flex items-start gap-3">
+                                        <div className="w-6 h-6 rounded-full bg-green-600 text-white flex items-center justify-center shrink-0 mt-0.5"><CheckCircle2 className="w-4 h-4" /></div>
+                                        <span className="text-green-900 font-medium">{item}</span>
+                                    </li>
+                                ))}
+                            </ul>
                         </div>
                     </div>
-
-                    {/* Right: USP Comparison */}
-                    <div className="grid gap-6">
-                        {[
-                            { title: "No extreme dieting", desc: "Eat to fuel your metabolism, safely and sustainably.", icon: Ban, color: "text-red-500", bg: "bg-red-50" },
-                            { title: "No hidden charges", desc: "100% transparent pricing for our medical care.", icon: Ban, color: "text-red-500", bg: "bg-red-50" },
-                            { title: "Transparent communication", desc: "Honest feedback from doctors, not salespeople.", icon: CheckCircle2, color: "text-accent", bg: "bg-teal-50" },
-                            { title: "Ethical & Science-Backed", desc: "Protocols based on physiology, not fads.", icon: CheckCircle2, color: "text-accent", bg: "bg-teal-50" },
-                        ].map((item, idx) => (
-                            <div key={idx} className="flex items-center gap-5 p-5 bg-white border border-gray-100 shadow-[0_2px_10px_rgba(15,43,70,0.04)] rounded-xl hover:border-secondary/50 hover:shadow-md transition-all">
-                                <div className={`p-3 rounded-full ${item.bg} shrink-0`}>
-                                    <item.icon className={`w-6 h-6 ${item.color}`} />
-                                </div>
-                                <div>
-                                    <h4 className="font-bold text-lg text-primary">{item.title}</h4>
-                                    <p className="text-sm text-[#6B7280] mt-1 pr-4">{item.desc}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-
                 </div>
+
+                <div className="mt-12 text-center">
+                    <Link
+                        href="https://wa.me/919718476787?text=I%20want%20to%20consult%20a%20doctor%20about%20my%20weight."
+                        target="_blank"
+                        className="inline-flex items-center justify-center gap-2 px-10 py-5 rounded-xl bg-green-600 text-white font-bold text-lg hover:bg-green-700 shadow-lg shadow-green-600/30 transition-transform hover:-translate-y-1 w-full sm:w-auto"
+                    >
+                        Talk To Our Clinical Team On WhatsApp <ChevronRight className="w-5 h-5" />
+                    </Link>
+                </div>
+
             </div>
         </section>
     );

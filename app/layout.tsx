@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
+import { Noto_Serif, Manrope } from 'next/font/google';
 import "./globals.css";
 import { Toaster } from "@/components/ui/toaster";
 import WhatsAppButton from "./components/WhatsAppButton";
 import Providers from "./components/Providers";
+
+const notoSerif = Noto_Serif({ subsets: ["latin"], weight: ["400", "700"], variable: '--font-noto-serif' });
+const manrope = Manrope({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: '--font-manrope' });
 
 export const metadata: Metadata = {
   title: "FitMeByNHC | Medical Fat Loss & Metabolic Correction",
@@ -22,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="font-sans antialiased text-[#333333] selection:bg-[#0F2B46] selection:text-white">
+      <body className={`${manrope.variable} ${notoSerif.variable} font-sans antialiased bg-background text-foreground`}>
         <Providers>
           {children}
           <Toaster />
